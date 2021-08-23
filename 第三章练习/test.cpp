@@ -2,6 +2,7 @@
 using namespace std;
 #include <string>
 #include <cctype>
+#include <vector>
 
 
 //int main()
@@ -204,6 +205,329 @@ using namespace std;
 //	//}
 //
 //	//cout << str1 << endl;
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//vector<string> svec;   //默认初始化vector里没有任何元素
+//	//C++11列表初始化
+//	//vector<string> svec{ "a", "an", "the" };
+//	
+//	//使用迭代器迭代
+//	//for (vector<string>::iterator it = svec.begin(); it != svec.end(); it++)
+//	//{
+//	//	cout << *it << endl;
+//	//}
+//	
+//	//vector<int> v1(10);   //容器内10个元素，每个元素都是0
+//	//vector<string> v2(5);  //vector内5个string，每个string都是空串
+//
+//
+//	//vector<int> v1(10);     //10个元素，每个元素是0
+//	//vector<int> v2{ 10 };   //1个元素，这个元素是10
+//
+//	//vector<int> v3(10, 1);  //10个元素，每个元素是1
+//	//vector<int> v4{ 10,1 }; //2个元素，第一个元素是10，第二个元素是1
+//
+//	//两个是等价的
+//	//vector<string> v5(10, "null");
+//	//vector<string> v6{ 10, "null" };
+//	
+//	//for (vector<string>::iterator it = v6.begin(); it != v6.end(); it++)
+//	//{
+//	//	cout << *it << endl;
+//	//}
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//3.14用cin读入一组整数并把它们存入一个vector对象中
+//	//vector<int> v1;
+//	//int temp;
+//	//while (cin >> temp)
+//	//{
+//	//	v1.push_back(temp);
+//	//}
+//
+//
+//	//3.15把上面程序改成读字符串
+//	vector<string> v2;
+//	string temp;
+//	while (cin >> temp)
+//	{
+//		v2.push_back(temp);
+//	}
+//}
+
+
+//int main()
+//{
+//	//利用范围for处理vector中的元素
+//	vector<int> v1{ 1,2,3,4,5,6,7,8,9 };
+//	for (auto& i : v1)
+//	{
+//		i = i * i;
+//	}
+//
+//	for (auto& i : v1)
+//	{
+//		cout << i << " ";
+//	}
+//
+//	return 0;
+//}
+
+//template <class T>
+//void print(vector<T>& v)
+//{
+//	for (auto& i : v)
+//	{
+//		cout << i << " ";
+//	}
+//	cout << endl;
+//}
+
+//int main()
+//{
+//	//3.16
+//	vector<int> v1;
+//	print(v1);
+//
+//	vector<int> v2(10);   //10个0
+//	print(v2);
+//
+//	vector<int> v3(10, 42);  //10个42
+//	print(v3);
+//
+//	vector<int> v4{ 10 };   //1个10
+//	print(v4);
+//
+//	vector<int> v5{ 10, 42 };   //一个10，一个42
+//	print(v5);
+//
+//	vector<string> v6{ 10 };   //10个空串
+//	print(v6);
+//
+//	vector<string> v7{ 10, "hi" };  //10个"hi"
+//	print(v7);
+//
+//	return 0;
+//}
+
+
+//3.17从cin读入一组单词并存入vector，然后把它们改成大写形式，输出结果，每个词占一行
+//int main()
+//{
+//	vector<string> v1;
+//	string word;
+//	while (cin >> word)
+//	{
+//		v1.push_back(word);
+//	}
+//
+//	for (auto& t : v1)
+//	{
+//		for (int i = 0; i < t.size(); i++)
+//		{
+//			t[i] = toupper(t[i]);
+//		}
+//		cout << t << endl;
+//	}
+//
+//	return 0;
+//}
+
+
+//3.19定义一个含有10个元素的vector对象 - 3种方法
+//int main()
+//{
+//	vector<int> v1(10, 42);
+//	vector<int> v2{ 42,42,42,42,42,42,42,42,42,42 };
+//	vector<int> v3 = { 42,42,42,42,42,42,42,42,42,42 };
+//
+//	return 0;
+//}
+
+
+//3.20读入一组整数并把它们存入vector数组，将每对相邻整数的和输出
+//int main()
+//{
+//	vector<int> v1;
+//	int temp;
+//	while (cin >> temp)
+//	{
+//		v1.push_back(temp);
+//	}
+//
+//	//for (decltype(v1.size()) i = 0; i < v1.size(); i++)
+//	//{
+//	//	if (v1.size() == 1)
+//	//	{
+//	//		break;
+//	//	}
+//
+//	//	if (i == 0)
+//	//	{
+//	//		cout << v1[i + 1] << " ";
+//	//	}
+//	//	else if (i == v1.size() - 1)
+//	//	{
+//	//		cout << v1[i - 1] << " ";
+//	//	}
+//	//	else
+//	//	{
+//	//		cout << v1[i - 1] + v1[i + 1] << " ";
+//	//	}
+//	//}
+//
+//	//修改程序，要求输出第一个和最后一个元素的和，接着输出第二个和倒数第二个元素的和
+//	decltype(v1.size()) left = 0;
+//	decltype(v1.size()) right = v1.size() - 1;
+//	while (left <= right)
+//	{
+//		cout << v1[left] + v1[right] << " ";
+//		left++;
+//		right--;
+//	}
+//	
+//	return 0;
+//}
+
+
+
+//3.21
+//template <class T>
+//void print(vector<T> v)
+//{
+//	for (auto it = v.begin();; it != v.end(); it++)
+//	{
+//		cout << *it << " ";
+//	}
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	vector<int> v1;
+//	
+//}
+
+
+//3.23
+//int main()
+//{
+//	vector<int> v{ 1,2,3,4,5,6,7,8,9,10 };
+//
+//	for (auto i = v.begin(); i != v.end(); i++)
+//	{
+//		*i = 2 * (*i);
+//	}
+//
+//	for (auto& i : v)
+//	{
+//		cout << i << " ";
+//	}
+//	cout << endl;
+//
+//	return 0;
+//}
+
+//3.24
+//int main()
+//{
+//	vector<int> v;
+//	int temp = 0;
+//	while (cin >> temp)
+//	{
+//		v.push_back(temp);
+//	}
+//
+//	for (auto i = v.begin(); i != v.end(); i++)
+//	{
+//		if (v.size() == 1)
+//		{
+//			break;
+//		}
+//
+//		if (i == v.begin())
+//		{
+//			cout << *(i + 1) << " ";
+//		}
+//		else if (i == v.end() - 1)
+//		{
+//			cout << *(i - 1) << " ";
+//		}
+//		else
+//		{
+//			cout << *(i - 1) + *(i + 1) << " ";
+//		}
+//	}
+//	cout << endl;
+//
+//	return 0;
+//}
+
+//3.25
+//int main()
+//{
+//	vector<unsigned int> sores(11, 0); //11个分数段，全部初始化为0
+//	unsigned int grade = 0;
+//	while (cin >> grade)
+//	{
+//		if (grade <= 100)
+//			++sores[grade / 10];
+//	}
+//
+//	for (auto i = sores.begin(); i != sores.end(); i++)
+//	{
+//		cout << *i << " ";
+//	}
+//	cout << endl;
+//
+//	return 0;
+//}
+
+
+//string sa[10];
+//int ia[10];
+//int main()
+//{
+//	string sa2[10];
+//	int ia2[10];
+//
+//	return 0;
+//}
+
+
+//3.32
+//int main()
+//{
+//	vector<int> v1(10);
+//	vector<int> v2(10);
+//	
+//	int tag = 0;
+//	for (auto i = v1.begin(); i != v1.end(); i++)
+//	{
+//		*i = tag++;
+//	}
+//
+//	//将v1拷贝到v2
+//	tag = 0;
+//	for (auto i = v2.begin(); i != v2.end(); i++)
+//	{
+//		*i = v1[tag++];
+//	}
+//
+//	for (auto& i : v2)
+//	{
+//		cout << i << " ";
+//	}
 //
 //	return 0;
 //}
