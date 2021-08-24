@@ -3,6 +3,7 @@ using namespace std;
 #include <string>
 #include <cctype>
 #include <vector>
+#include <iterator>
 
 
 //int main()
@@ -533,3 +534,161 @@ using namespace std;
 //}
 
 
+
+
+//C++11begin和end函数
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9 };
+//	int* beg = begin(arr);  //指向第一个元素
+//	int* last = end(arr);   //指向最后一个元素的下一个位置
+//
+//	while (beg != last)
+//	{
+//		cout << *beg << " ";
+//		beg++;
+//	}
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9 };
+//	auto n = end(arr) - begin(arr);
+//
+//
+//	return 0;
+//}
+
+
+
+//3.36编写程序比较vector中元素是否相等
+//int main()
+//{
+//	vector<int> v1{ 1,2,3,4,5,6,7,8,9 };
+//	vector<int> v2 = { 1,2,3,4,5,6,7,8,9 };
+//
+//	if (v1.size() != v2.size()) 
+//	{
+//		cout << "v1和v2不相等" << endl;
+//	}
+//	else
+//	{
+//		int i = 0;
+//		for (i = 0; i < v1.size(); i++)
+//		{
+//			if (v1[i] != v2[i])
+//			{
+//				cout << "v1和v2不相等" << endl;
+//				break;
+//			}
+//		}
+//
+//		if (v1.size() == i)
+//		{
+//			cout << "v1和v2相等" << endl;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	//3.39
+//	string str1{ "Hello world" };
+//	string str2 = "Hello world";
+//
+//	if (str1 == str2)
+//	{
+//		cout << "equal" << endl;
+//	}
+//	else
+//	{
+//		cout << "no equal" << endl;
+//	}
+//
+//	char str3[] = "abcdef";
+//	char str4[] = "abcdef";
+//	if (!strcmp(str3, str4))
+//	{
+//		cout << "equal" << endl;
+//	}
+//	else
+//	{
+//		cout << "no equal" << endl;
+//	}
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//c_str函数会返回一个指针，这样可以用c风格字符串管理string
+//	string s("Hello world!");
+//	auto str = s.c_str();   //返回的是const char*
+//	
+//
+//	return 0;
+//}
+
+
+
+//用数组初始化vector
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9 };
+//	vector<int> ivec(begin(arr), end(arr));  //从0号下标拷贝到arr - 1
+//
+//	for (int i = 0; i < ivec.size(); i++)
+//	{
+//		cout << ivec[i] << " ";
+//	}
+//	
+//
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	//3.41
+//	int arr[] = { 0,1,2,3,4,5,6,7,8,9,10 };
+//	vector<int> ivec(arr + 1, arr + 10);
+//
+//	for (vector<int>::iterator it = ivec.begin(); it != ivec.end(); it++)
+//	{
+//		cout << *it << " ";
+//	}
+//
+//	return 0;
+//}
+
+//3.42
+//int main()
+//{
+//	vector<int> v1{ 1,2,3,4,5,6 };
+//	
+//	int arr[6];
+//	for (int i = 0; i < v1.size(); i++)
+//	{
+//		arr[i] = v1[i];
+//	}
+//
+//	return 0;
+//}
+
+
+int main()
+{
+	vector<int> ivec(10, 1);
+	for (vector<int>::iterator it; it != ivec.end(); it++)
+	{
+		cout << *it << " ";
+	}
+	
+	return 0;
+}
