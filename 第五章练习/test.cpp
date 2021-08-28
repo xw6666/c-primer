@@ -4,6 +4,7 @@ using namespace std;
 #include <stdexcept>   //tuntime_error在这个头文件中
 #include "1/Sales_item.h"
 #include <cctype>
+#include <initializer_list>
 
 //int main()
 //{
@@ -266,19 +267,36 @@ using namespace std;
 //	return 0;
 //}
 
-void print(int(&nums)[10])
+//void print(int(&nums)[10])
+//{
+//	for (int i = 0; i < 10; i++)
+//	{
+//		cout << nums[i] << " ";
+//	}
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	int nums[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	print(nums);
+//
+//	return 0;
+//}
+
+
+//输出错误信息函数
+void error_msg(initializer_list<string> il)
 {
-	for (int i = 0; i < 10; i++)
+	for (auto i = il.begin(); i != il.end(); i++)
 	{
-		cout << nums[i] << " ";
+		cout << *i << " ";
 	}
+
 	cout << endl;
 }
 
 int main()
 {
-	int nums[] = { 1,2,3,4,5,6,7,8,9,10 };
-	print(nums);
-
-	return 0;
+	
 }
