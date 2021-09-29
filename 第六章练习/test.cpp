@@ -120,24 +120,116 @@ using namespace std;
 
 
 //6.33
-void input_vector(vector<int>& ivec)
-{
-	if (ivec.size() == 0)
-	{
-		return;
-	}
-	else
-	{
-		int temp = *(ivec.end() - 1);
-		ivec.pop_back();
-		input_vector(ivec);
-		cout << temp << " ";
-	}
-}
+//void input_vector(vector<int>& ivec)
+//{
+//	if (ivec.size() == 0)
+//	{
+//		return;
+//	}
+//	else
+//	{
+//		int temp = *(ivec.end() - 1);
+//		ivec.pop_back();
+//		input_vector(ivec);
+//		cout << temp << " ";
+//	}
+//}
+//
+//int main()
+//{
+//	vector<int> v = { 1,2,3,4,5,6,7,8,9 };
+//	input_vector(v);
+//	return 0;
+//}
 
-int main()
-{
-	vector<int> v = { 1,2,3,4,5,6,7,8,9 };
-	input_vector(v);
-	return 0;
-}
+
+//6.36
+//int func1(int (&arr)[10]);
+//
+//string(&(func2(int)))[10];
+//
+////重命名法
+//typedef string arrS[10];    //arrS是string[10]的别名
+//arrS& func3(int);
+//
+////使用尾置返回类型 - C++11
+//auto func4(int)->string(&)[10];
+//
+////使用decltype - C++11
+//string odd[10] = { 0 };
+//decltype(odd)& func5(int);
+
+//const string& shorterString(const string& s1, const string& s2)   //底层const，可以发生重载
+//{
+//	return s1.size() <= s2.size() ? s1 : s2;
+//}
+//
+//string& shorterString(string& s1, string& s2)
+//{
+//	auto& r = shorterString(const_cast<const string&>(s1), const_cast<const string&>(s2));
+//
+//	return const_cast<string&>(r);
+//}
+
+//int func(int, int)
+//{
+//	return 0;
+//}
+//int func(const int, const int)   //顶层const，不能发生重载
+//{
+//	return 0;
+//}
+
+//int* func(int*);
+//double* func(double*);
+//
+//int main()
+//{
+//	return 0;
+//}
+
+
+//void func(int a, int b, int c = 10);
+////void func(int a, int b, int c = 20);    //错误，改变默认参数的值不能发生重载
+//void func(int a, int b, int c);   //正确
+
+//void func(int a = 10, int b, int c = 20);  //从第一个默认参数开始，后面每个参数都要有默认参数
+
+//int main()
+//{
+//	return 0;
+//}
+
+//void init(int ht, int wd = 80, char bckgrnd = ' ')
+//{
+//	cout << "Hello!" << endl;
+//}
+//
+//int main()
+//{
+//	init(5,68);
+//	init(14, '*');    //与程序员初衷不符
+//
+//	return 0;
+//}
+
+//内联函数
+//inline const string& shorterString(const string& s1, const string& s2)
+//{
+//	return s1.size() <= s2.size() ? s1 : s2;
+//}
+//
+//int main()
+//{
+//	string s1 = "abcdefef";
+//	string s2{ "cdefgd" };
+//
+//	cout << shorterString(s1, s2) << endl;
+//
+//	return 0;
+//}
+
+
+//C++11 constexpr函数
+//能用于常量表达式的函数
+//函数的返回类型及所有形参都是字面值类型，而且函数体中必须有且只有一条return语句
