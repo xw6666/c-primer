@@ -233,3 +233,32 @@ using namespace std;
 //C++11 constexpr函数
 //能用于常量表达式的函数
 //函数的返回类型及所有形参都是字面值类型，而且函数体中必须有且只有一条return语句
+
+//内联函数
+//inline bool isShorter(const string& s1, const string& s2)
+//{
+//	return s1.size() < s2.size();
+//}
+
+void f()
+{
+
+}
+void f(int, int)
+{
+
+}
+void f(int)
+{
+
+}
+void f(double, double a = 10)
+{
+
+}
+
+int main()
+{
+	//f(5, 5.6)   //err - 两个匹配程度相同
+	return 0;
+}

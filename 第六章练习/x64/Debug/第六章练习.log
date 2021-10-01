@@ -1,2 +1,5 @@
 ﻿  test.cpp
-  第六章练习.vcxproj -> E:\Codefield\c-primer\第六章练习\x64\Debug\第六章练习.exe
+E:\Codefield\c-primer\第六章练习\test.cpp(262,10): error C2666: “f”: 2 个重载有相似的转换
+E:\Codefield\c-primer\第六章练习\test.cpp(255,6): message : 可能是“void f(double,double)”
+E:\Codefield\c-primer\第六章练习\test.cpp(247,6): message : 或    “void f(int,int)”
+E:\Codefield\c-primer\第六章练习\test.cpp(262,10): message : 尝试匹配参数列表“(int, double)”时
