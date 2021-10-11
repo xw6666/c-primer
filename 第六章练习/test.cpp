@@ -4,6 +4,7 @@ using namespace std;
 #include <algorithm>
 #include <iterator>
 #include <initializer_list>
+#include <set>
 
 //double fac(int n)
 //{
@@ -260,5 +261,16 @@ void f(double, double a = 10)
 int main()
 {
 	//f(5, 5.6)   //err - 两个匹配程度相同
+	set<int> s;
+	s.insert(1);
+	s.insert(5);
+	s.insert(2);
+	s.insert(1);
+	s.insert(4);
+	s.insert(3);
+	s.insert(12);
+	auto ret = s.find(3);   //find返回迭代器 
+	vector<int> ivec;
+	
 	return 0;
 }
